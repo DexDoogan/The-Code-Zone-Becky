@@ -1,9 +1,9 @@
-//% color=#e6e6fa
-//% weight=79
+//% color=#EEBB00
+//% weight=10
 //% icon="\uf240"
 //% blockGap=8 block="Dictionary"
 //% groups='["Create", "Edit", "Retrieve", "String"]'
-namespace Dictionary {
+namespace Dictionary { 
 
     export class Dictionary {
         private keys: any[]
@@ -67,6 +67,20 @@ namespace Dictionary {
             }
             else {
                 throw console.error("This key does not exist")
+            }
+        }
+
+        public replaceValue(key: any, newValue: any): void {
+            let index = this.keys.indexOf(key);
+            if (index != -1) {
+                this.values[index] = newValue;
+            }
+        }
+
+        public replaceKey(key: any, newKey: any): void {
+            let index = this.keys.indexOf(key);
+            if (index != -1) {
+                this.values[index] = newKey;
             }
         }
 
@@ -156,6 +170,22 @@ namespace Dictionary {
     //% weight=100
     export function get_keys_list(d: Dictionary): any[] {
         return d.get_keys_list()
+    }
+
+    //% block="%d replace value at %key with %newValue"
+    //% blockId="replaceValue"
+    //% group="Edit"
+    //% weight=100
+    export function replaceValue(d: Dictionary, key: any, newValue: any): void {
+        d.replaceValue(key, newValue)
+    }
+
+    //% block="%d replace key at %value with %key"
+    //% blockId="replaceKey"
+    //% group="Edit"
+    //% weight=100
+    export function replaceKey(d: Dictionary, value: any, key: any): void {
+        d.replaceKey(value, key)
     }
 
     //% block="%d remove key, value pair %k %v"
