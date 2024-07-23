@@ -1,5 +1,6 @@
 {
     "name": "dict_ext",
+    "version": "1.0.5",
     "description": "",
     "dependencies": {
         "device": "*"
@@ -12,7 +13,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "2.0.2",
+        "target": "2.0.3",
         "pxt": "8.5.2",
         "targetId": "arcade"
     },
